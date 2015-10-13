@@ -1,0 +1,25 @@
+{
+  "name": "hash-router",
+  "version": "1.0.0",
+  "description": "Tiny and lightweight browser router library, developed with SPA in mind :)",
+  "main": "src/hash-router.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sloot14/Hash-Router.git"
+  },
+  "keywords": [
+    "hash-router"
+  ],
+  "author": "Anton Rodin <sloot14@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sloot14/Hash-Router/issues"
+  },
+  "homepage": "https://github.com/sloot14/Hash-Router#readme"
+}
