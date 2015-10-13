@@ -1,9 +1,9 @@
 /*!
  * hash-router v1.1
  * https://github.com/michaelsogos/Hash-Router
- * 
+ *
  * Developed by Michael Sogos
- * Copyright 2014 
+ * Copyright 2014
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -36,13 +36,15 @@
  **/
 
 /// Component to manage route based on hash, it is designed to be global.
+
 var Router = {
     /// Initialize the router.
     /// Accept a callback function to execute code before any route function is called,
     /// and a callback function to execute code when a route is not found.
     init: function (onRouteChange, onRouteNotFound) {
-        Router.__eventOnChange = onRouteChange;
-        Router.__eventOnNotFound = onRouteNotFound;
+        var noop = function(){};
+        Router.__eventOnChange = onRouteChange || noop;
+        Router.__eventOnNotFound = onRouteNotFound || noop;
 
         if (!("onhashchange" in window)) {
             console.error("The browser doesn't support HASH on URL!");
@@ -83,6 +85,9 @@ var Router = {
         return result;
     },
     __listener: function (hash) {
+        if (hash === "" || hash === "#") {
+            hash = "#/"
+        }
         var route = Router.matchRoute(hash);
         if (!route && !Router.__eventOnNotFound) {
             console.error("Cannot find a valid route for hash " + hash + "!");
@@ -217,3 +222,4 @@ Router.task = function (doneFunction) {
         }
     }
 }
+module.exports = Router;
